@@ -9,9 +9,18 @@
       {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
+  
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$']],
+            processEscapes: true
+        }
+    });
+  </script>
 
   <script src="{{ site.baseurl }}/assets/jquery.js"></script>
-  <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
   <script src="{{ site.baseurl }}/assets/toc.js"></script>
 
   <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
