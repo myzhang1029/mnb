@@ -4,6 +4,10 @@ _site
 .ruby-version
 .sass-cache
 .jekyll-metadata
+
+# Gemfile lock
+Gemfile.lock
+
 # Numerous always-ignore extensions
 *.diff
 *.err
