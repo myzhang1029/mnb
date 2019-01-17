@@ -8,12 +8,13 @@
 ly-d {
 }
 
-// Math notations(LaTeX rendered)
-ly-m {
-    display: inline;
-}
+// Math notations(LaTeX rendered using `$' pairs)
+// {
+//    display: inline;
+//}
 
-// Block math notations(LaTeX rendered)
+// Block math notations under definitions
+// to explain how to use the definition(LaTeX rendered using `$$' pairs)
 ly-b {
     display: block;
 }
