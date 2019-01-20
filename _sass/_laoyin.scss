@@ -6,6 +6,8 @@
 
 // Math definitions
 ly-d {
+    display: block;
+    overflow: auto;
 }
 
 // Math notations(LaTeX rendered using `$' pairs)
@@ -17,18 +19,21 @@ ly-d {
 // to explain how to use the definition(LaTeX rendered using `$$' pairs)
 ly-b {
     display: block;
+    overflow: auto;
 }
 
 // Examples
 ly-e {
     display: block;
+    overflow: auto;
 }
 
 // Laoyin quotes
 ly-q {
     display: block;
-	margin: 2rem 0rem 1.5rem 1.5rem;
-	border-left: 0.5rem solid #DDD;
+    overflow: auto;
+    margin: 2rem 0rem 1.5rem 1.5rem;
+    border-left: 0.5rem solid #DDD;
 }
 
 ly-q:before {
@@ -63,7 +68,6 @@ ly-a {
 img {
     float: right;
     clear: right;
-    overflow: auto;
 }
 
 .MathJax {
