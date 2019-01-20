@@ -42,7 +42,7 @@
                           <br />
                           <input type="checkbox" name="showexam" id="showexam" checked /><label for="showexam">例题</label>
                           <br />
-                          <input type="checkbox" name="onlylyq" id="onlylyq" disabled /><label for="onlylyq">只看老尹语录</label>
+                          <input type="checkbox" name="onlylyq" id="onlylyq" /><label for="onlylyq">只看老尹语录</label>
                           <br />
                           <input type="checkbox" name="showorig" id="showorig" /><label for="showorig">原文（否则是我修改过的）</label>
                       </form>
@@ -57,63 +57,18 @@
                     $('#toc').hide();
                     $('#sitemenu').hide();
                     $('#options').hide();
-                    $("#showlyq").click(function() {
-                        if ($(this).prop("checked")) {
-                            setCookie("showlyq", "true");
-                            $("ly-q").show();
-                        } else {
-                            setCookie("showlyq", "false");
-                            $("ly-q").hide();
-                        }
-                    });
-                    $("#showexam").click(function() {
-                        if ($(this).prop("checked")) {
-                            setCookie("showexam", "true");
-                            $("ly-e").show();
-                        } else {
-                            setCookie("showexam", "false");
-                            $("ly-e").hide();
-                        }
-                    });
-                    /*
-                    $("#onlylyq").click(function() {
-                        if ($(this).prop("checked")) {
-                            setCookie("onlylyq", "true");
-                            $("#showlyq").attr("checked", true);
-                            $("#showexam").attr("checked", false);
-                            $("#showorig").attr("checked", false);
-                            $("main").find("*").hide();
-                            $("main").find("ly-q").show();
-                        } else {
-                            setCookie("showorig", "false");
-                            $("main").find("*").show();
-                            $("main").find("ly-r").hide();
-                        }
-                    });*/
-                    $("#showorig").click(function() {
-                        if ($(this).prop("checked")) {
-                            setCookie("showorig", "true");
-                            $("ly-r").css("display", "inline");
-                            $("ly-a").css("display", "none");
-                        } else {
-                            setCookie("showorig", "false");
-                            $("ly-a").css("display", "inline");
-                            $("ly-r").css("display", "none");
-                        }
-                    });
-                    if (getCookie("showlyq") == "false") {
-                        $("#showlyq").attr("checked", false);
-                    }
-                    if (getCookie("showexam") == "false") {
-                        $("#showexam").attr("checked", false);
-                    }
-                    /*
-                    if (getCookie("onlylyq") == "true") {
-                        $("#onlylyq").attr("checked", true);
-                    }*/
-                    if (getCookie("showorig") == "true") {
-                        $("#showorig").attr("checked", true);
-                    }
+                if (getCookie("showlyq") == "false") {
+                    $("#showlyq").click();
+                }
+                if (getCookie("showexam") == "false") {
+                    $("#showexam").click();
+                }
+                if (getCookie("showorig") == "true") {
+                    $("#showorig").click();
+                }
+                if (getCookie("onlylyq") == "true") {
+                    $("#onlylyq").click();
+                }
                 });
                 function toggleToc() {
                     $('#sitemenu').hide();
@@ -130,6 +85,66 @@
                     $('#sitemenu').hide();
                     $('#options').slideToggle();
                 }
+                $("#showlyq").click(function() {
+                    if ($(this).prop("checked")) {
+                        setCookie("showlyq", "true");
+                        $("ly-q").show();
+                    } else {
+                        setCookie("showlyq", "false");
+                        $("ly-q").hide();
+                    }
+                });
+                $("#showexam").click(function() {
+                    if ($(this).prop("checked")) {
+                        setCookie("showexam", "true");
+                        $("ly-e").show();
+                        if ($("#onlylyq").is(":checked")) {
+                            $("#onlylyq").click();
+                        }
+                    } else {
+                        setCookie("showexam", "false");
+                        $("ly-e").hide();
+                    }
+                });
+                $("#onlylyq").click(function() {
+                    if ($(this).prop("checked")) {
+                        setCookie("onlylyq", "true");
+                        if (!$("#showlyq").is(":checked")) {
+                            $("#showlyq").click();
+                        }
+                        $("main").find("*").hide();
+                        $("main").find("ly-q").show();
+                        $("main").find("ly-q").parents().show();
+                        if ($("#showexam").is(":checked")) {
+                            $("#showexam").click();
+                        }
+                        if ($("#showorig").is(":checked")) {
+                            $("#showorig").click();
+                        }
+                    } else {
+                        setCookie("onlylyq", "false");
+                        $("main").find("*").show();
+                        $("main").find("ly-r").hide();
+                        if (!$("#showexam").is(":checked")) {
+                            $("ly-e").hide();
+                        }
+                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                    }
+                });
+                $("#showorig").click(function() {
+                    if ($(this).prop("checked")) {
+                        setCookie("showorig", "true");
+                        $("ly-r").css("display", "inline");
+                        $("ly-a").css("display", "none");
+                        if ($("#onlylyq").is(":checked")) {
+                            $("#onlylyq").click();
+                        }
+                    } else {
+                        setCookie("showorig", "false");
+                        $("ly-a").css("display", "inline");
+                        $("ly-r").css("display", "none");
+                    }
+                });
               </script>
           </header>
 
