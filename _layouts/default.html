@@ -4,6 +4,7 @@
   {% include head.html %}
 
   <body>
+      <noscript><h1>您的浏览器不支持JavaScript，您将无法正确领略老尹的伟大智慧</h1></noscript>
       <div class="container content">
           <header class="masthead">
               <h3 class="masthead-title">
@@ -17,17 +18,32 @@
                       <tr>
                           <td class="tabs"><a href="javascript:toggleToc();">本篇目录</a></td>
                           <td class="tabs"><a href="javascript:toggleMenu();">总目录</a></td>
+                          <td class="tabs"><a href="javascript:toggleOptions();">显示选项<a></td>
                       </tr>
                   </table>
                   <div id="toc"></div>
                   <div id="sitemenu">
                       <ul>
-                          {% for p in site.posts %}
+                          <li>
+                              <a href="{{ site.baseurl }}/">首页</a>
+                          </li>
+                          {% assign psts = site.posts | reverse %}
+                          {% for p in psts %}
                           <li>
                               <a href="{{ site.baseurl }}/{{ p.url }}">{{ p.title }}</a>
                           </li>
                           {% endfor %}
                       </ul>
+                  </div>
+                  <div id="options">
+                      <p>显示：</p>
+                      <form>
+                          <input type="checkbox" name="showlyq" id="showlyq" checked /><label for="showlyq">老尹语录</label>
+                          <br />
+                          <input type="checkbox" name="showexam" id="showexam" checked /><label for="showexam">例题</label>
+                          <br />
+                          <input type="checkbox" name="showorig" id="showorig" /><label for="showorig">原文（否则是我修改过的）</label>
+                      </form>
                   </div>
               </div>
               <script>
@@ -38,14 +54,60 @@
                     });
                     $('#toc').hide();
                     $('#sitemenu').hide();
+                    $('#options').hide();
+                    $("#showlyq").click(function() {
+                        if ($(this).prop("checked")) {
+                            setCookie("showlyq", "true");
+                            $("ly-q").show();
+                        } else {
+                            setCookie("showlyq", "false");
+                            $("ly-q").hide();
+                        }
+                    });
+                    $("#showexam").click(function() {
+                        if ($(this).prop("checked")) {
+                            setCookie("showexam", "true");
+                            $("ly-e").show();
+                        } else {
+                            setCookie("showexam", "false");
+                            $("ly-e").hide();
+                        }
+                    });
+                    $("#showorig").click(function() {
+                        if ($(this).prop("checked")) {
+                            setCookie("showorig", "true");
+                            $("ly-r").css("display", "inline");
+                            $("ly-a").css("display", "none");
+                        } else {
+                            setCookie("showorig", "false");
+                            $("ly-a").css("display", "inline");
+                            $("ly-r").css("display", "none");
+                        }
+                    });
+                    if (getCookie("showlyq") == "false") {
+                        $("#showlyq").attr("checked", false);
+                    }
+                    if (getCookie("showexam") == "false") {
+                        $("#showexam").attr("checked", false);
+                    }
+                    if (getCookie("showorig") == "true") {
+                        $("#showorig").attr("checked", true);
+                    }
                 });
                 function toggleToc() {
                     $('#sitemenu').hide();
+                    $('#options').hide();
                     $('#toc').slideToggle();
                 }
                 function toggleMenu() {
                     $('#toc').hide();
+                    $('#options').hide();
                     $('#sitemenu').slideToggle();
+                }
+                function toggleOptions() {
+                    $('#toc').hide();
+                    $('#sitemenu').hide();
+                    $('#options').slideToggle();
                 }
               </script>
           </header>
@@ -60,16 +122,5 @@
               </small>
           </footer>
       </div>
-
-      {% if site.analytics_id %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.analytics_id }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-      {% endif %}
   </body>
 </html>

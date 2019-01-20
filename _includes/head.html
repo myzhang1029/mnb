@@ -1,30 +1,47 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>
-    {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
-    {% else %}
-      {{ page.title }} &middot; {{ site.title }}
-    {% endif %}
-  </title>
-  
-  <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$']],
-            displayMath: [['$$','$$']],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            processEscapes: true
+    <title>
+        {% if page.title == "Home" %}
+        {{ site.title }} &middot; {{ site.tagline }}
+        {% else %}
+        {{ page.title }} &middot; {{ site.title }}
+        {% endif %}
+    </title>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX","output/CommonHTML"],
+            extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+            TeX: {
+                extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+            },
+            displayAlign: "left",
+            displayIndent: "0em",
+            tex2jax: {
+                inlineMath: [['$','$']],
+                displayMath: [['$$','$$']],
+                skipTags: ["script","noscript","style","textarea","pre","code"],
+                processEscapes: true
+            }
+        });
+    </script>
+    <script src="{{ site.baseurl }}/assets/jquery.js"></script>
+    <script src="{{ site.baseurl }}/assets/MathJax/MathJax.js" async></script>
+    <script src="{{ site.baseurl }}/assets/toc.js"></script>
+    <script>
+        function setCookie(key, value) {
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+            document.cookie = key + '=' + value +';path=/'+ ';expires=' + expires.toUTCString();
         }
-    });
-  </script>
-  <script src="{{ site.baseurl }}/assets/jquery.js"></script>
-  <script src="{{ site.baseurl }}/assets/MathJax/MathJax.js?config=TeX-AMS_CHTML" async></script>
-  <script src="{{ site.baseurl }}/assets/toc.js"></script>
-
-  <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />
-  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico" />
+        function getCookie(key) {
+            var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+            return keyValue ? keyValue[2] : null;
+        }
+    </script>
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />
+    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico" />
 </head>

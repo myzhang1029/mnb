@@ -27,6 +27,26 @@ ly-e {
 // Laoyin quotes
 ly-q {
     display: block;
+	margin: 2rem 0rem 1.5rem 1.5rem;
+	border-left: 0.5rem solid #DDD;
+}
+
+ly-q:before {
+	content: '“';
+	content: open-quote;
+}
+
+ly-q:after {
+	content: '”';
+	content: close-quote;
+}
+ly-q ly-q:before {
+	content: '‘';
+	content: open-quote;
+}
+ly-q ly-q:after {
+	content: '’';
+	content: close-quote;
 }
 
 // Not appropriate words/sentences
@@ -36,6 +56,14 @@ ly-r {
 
 // Added by writer
 ly-a {
+    display:inline;
+}
+
+// You should put the img tag before the text context so that it displays near it
+img {
+    float: right;
+    clear: right;
+    overflow: auto;
 }
 
 .MathJax {
