@@ -128,7 +128,7 @@
                         if (!$("#showexam").is(":checked")) {
                             $("ly-e").hide();
                         }
-                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                        $("script[type*='math/tex']").hide();
                     }
                 });
                 $("#showorig").click(function() {
