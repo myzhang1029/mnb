@@ -42,6 +42,8 @@
                           <br />
                           <input type="checkbox" name="showexam" id="showexam" checked /><label for="showexam">例题</label>
                           <br />
+                          <input type="checkbox" name="onlylyq" id="onlylyq" disabled /><label for="onlylyq">只看老尹语录</label>
+                          <br />
                           <input type="checkbox" name="showorig" id="showorig" /><label for="showorig">原文（否则是我修改过的）</label>
                       </form>
                   </div>
@@ -73,6 +75,21 @@
                             $("ly-e").hide();
                         }
                     });
+                    /*
+                    $("#onlylyq").click(function() {
+                        if ($(this).prop("checked")) {
+                            setCookie("onlylyq", "true");
+                            $("#showlyq").attr("checked", true);
+                            $("#showexam").attr("checked", false);
+                            $("#showorig").attr("checked", false);
+                            $("main").find("*").hide();
+                            $("main").find("ly-q").show();
+                        } else {
+                            setCookie("showorig", "false");
+                            $("main").find("*").show();
+                            $("main").find("ly-r").hide();
+                        }
+                    });*/
                     $("#showorig").click(function() {
                         if ($(this).prop("checked")) {
                             setCookie("showorig", "true");
@@ -90,6 +107,10 @@
                     if (getCookie("showexam") == "false") {
                         $("#showexam").attr("checked", false);
                     }
+                    /*
+                    if (getCookie("onlylyq") == "true") {
+                        $("#onlylyq").attr("checked", true);
+                    }*/
                     if (getCookie("showorig") == "true") {
                         $("#showorig").attr("checked", true);
                     }
