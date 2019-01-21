@@ -61,13 +61,25 @@ ly-r {
 
 // Added by writer
 ly-a {
-    display:inline;
+    display: inline;
+}
+
+// Comment, showed on the right side
+ly-c {
+    float: right;
+    font-style: italic;
+    display: block;
 }
 
 // You should put the img tag before the text context so that it displays near it
-img {
+// This rule applies to all floated content
+img.aside {
     float: right;
-    clear: right;
+    max-width: 30%;
+}
+img.main {
+    float: none;
+    max-width: 60%;
 }
 
 .MathJax {
