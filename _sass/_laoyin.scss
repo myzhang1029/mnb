@@ -66,7 +66,6 @@ ly-a {
 
 // Comment, showed on the right side
 ly-c {
-    float: right;
     font-style: italic;
     display: block;
 }
@@ -74,14 +73,30 @@ ly-c {
 // You should put the img tag before the text context so that it displays near it
 // This rule applies to all floated content
 img.aside {
-    float: right;
-    max-width: 50%;
 }
 img.main {
     float: none;
-    max-width: 80%;
 }
 
 .MathJax {
     outline: 0;
+}
+
+@media screen and (min-width: 1024px) {
+    ly-c, img.aside {
+        float: right;
+        max-width: 40%;
+    }
+    img.main, .MathJax {
+        max-width: 60%；
+    }
+}
+@media screen and (max-width: 1023px) {
+    ly-c, img.aside {
+        float: none;
+        max-width: 100%;
+    }
+    img.main, .MathJax {
+        max-width: 100%；
+    }
 }
