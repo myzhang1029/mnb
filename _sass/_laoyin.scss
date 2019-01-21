@@ -75,11 +75,11 @@ ly-c {
 // This rule applies to all floated content
 img.aside {
     float: right;
-    max-width: 30%;
+    max-width: 50%;
 }
 img.main {
     float: none;
-    max-width: 60%;
+    max-width: 80%;
 }
 
 .MathJax {
