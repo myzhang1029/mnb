@@ -2,7 +2,7 @@
 permalink:           pretty
 
 # Setup
-title:               My Math Notebook
+title:               我的数学笔记本
 tagline:             Myzhang1029's middle school math notebook
 url:                 http://myzhang1029.gitlab.io
 baseurl:             "/mnb"
