@@ -78,7 +78,7 @@ img.main {
     float: none;
 }
 
-.MathJax {
+.MathJax_Display {
     outline: 0;
 }
 
@@ -87,7 +87,7 @@ img.main {
         float: right;
         max-width: 40%;
     }
-    img.main, .MathJax {
+    img.main, .MathJax_Display {
         max-width: 60%；
     }
 }
@@ -96,7 +96,7 @@ img.main {
         float: none;
         max-width: 100%;
     }
-    img.main, .MathJax {
+    img.main, .MathJax_Display {
         max-width: 100%；
     }
 }
