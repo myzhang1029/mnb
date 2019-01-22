@@ -74,12 +74,13 @@ ly-c {
 // This rule applies to all floated content
 img.aside {
 }
+
 img.main {
     float: none;
 }
 
-.MathJax_Display {
-    outline: 0;
+.MathJax {
+    outline: 0 !important;
 }
 
 @media screen and (min-width: 1024px) {
@@ -87,8 +88,8 @@ img.main {
         float: right;
         max-width: 40%;
     }
-    img.main, .MathJax_Display {
-        max-width: 60%；
+    img.main, .MathJax {
+        max-width: 60% !important;
     }
 }
 @media screen and (max-width: 1023px) {
@@ -96,7 +97,7 @@ img.main {
         float: none;
         max-width: 100%;
     }
-    img.main, .MathJax_Display {
-        max-width: 100%；
+    img.main, .MathJax {
+        max-width: 100% !important;
     }
 }
