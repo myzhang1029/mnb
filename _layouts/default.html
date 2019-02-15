@@ -4,7 +4,7 @@
   {% include head.html %}
 
   <body>
-      <noscript><h1>您的浏览器不支持JavaScript，您将无法正确领略老尹的伟大智慧</h1></noscript>
+      <noscript><h1 class="message">您的浏览器不支持JavaScript，您将无法正确领略老尹的伟大智慧</h1></noscript>
       <div class="container content">
           <header class="masthead">
               <h3 class="masthead-title">
@@ -54,9 +54,7 @@
                         listType: 'ul',
                         title: ''
                     });
-                    $('#toc').hide();
-                    $('#sitemenu').hide();
-                    $('#options').hide();
+                });
                 if (getCookie("showlyq") == "false") {
                     $("#showlyq").click();
                 }
@@ -69,7 +67,6 @@
                 if (getCookie("onlylyq") == "true") {
                     $("#onlylyq").click();
                 }
-                });
                 function toggleToc() {
                     $('#sitemenu').hide();
                     $('#options').hide();
