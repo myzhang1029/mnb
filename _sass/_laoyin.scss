@@ -29,6 +29,9 @@ ly-e {
 }
 
 // Laoyin quotes
+// Attributes:
+// date: the date.
+// towhom: said to whom.
 ly-q {
     display: block;
     overflow: auto;
@@ -72,7 +75,7 @@ ly-c {
 
 // You should put the img tag before the text context so that it displays near it
 // This rule applies to all floated content
-img.aside {
+.aside {
 }
 
 img.main {
@@ -84,7 +87,7 @@ img.main {
 }
 
 @media screen and (min-width: 1024px) {
-    ly-c, img.aside {
+    ly-c, .aside {
         float: right;
         max-width: 40%;
     }
@@ -93,7 +96,7 @@ img.main {
     }
 }
 @media screen and (max-width: 1023px) {
-    ly-c, img.aside {
+    ly-c, .aside {
         float: none;
         max-width: 100%;
     }
