@@ -22,6 +22,10 @@ ly-b {
     overflow: auto;
 }
 
+div {
+    overflow: auto;
+}
+
 // Examples
 ly-e {
     display: block;
@@ -71,6 +75,15 @@ ly-a {
 ly-c {
     font-style: italic;
     display: block;
+}
+
+// Dynamic note animation: Old contents
+ly-old {
+    display: none;
+}
+
+// Dynamic note animation: Contents replacing old contents
+ly-rep{
 }
 
 // You should put the img tag before the text context so that it displays near it
