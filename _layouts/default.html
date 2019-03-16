@@ -129,6 +129,7 @@
                         $("main").find("*").show();
                         $("main").find("ly-r").hide();
                         $("main").find("ly-old").hide();
+                        $("main").find(".hidden").hide();
                         if (!$("#showexam").is(":checked")) {
                             $("ly-e").hide();
                         }
@@ -151,8 +152,8 @@
                 });
               </script>
           </header>
-
           <main>
+            <div class="hidden" style="display:none">$\newcommand{\paral}{\unicode{x25B1}}$</div>
             {{ content }}
           </main>
 

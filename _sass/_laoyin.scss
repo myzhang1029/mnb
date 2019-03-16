@@ -20,16 +20,19 @@ ly-d {
 ly-b {
     display: block;
     overflow: auto;
+    margin-bottom: 1.3rem;
 }
 
 div {
     overflow: auto;
+    margin-bottom: 1.3rem;
 }
 
 // Examples
 ly-e {
     display: block;
     overflow: auto;
+    margin-bottom: 1.3rem;
 }
 
 // Laoyin quotes
@@ -86,6 +89,13 @@ ly-old {
 ly-rep{
 }
 
+// Our teacher usually draw a regtangle box to indicate tha sth. is ignored here,
+// we call them 'televisions'
+.television {
+  border: 0.1rem solid;
+  text-align: center;
+}
+
 // You should put the img tag before the text context so that it displays near it
 // This rule applies to all floated content
 .aside {
@@ -97,15 +107,17 @@ img.main {
 
 .MathJax {
     outline: 0 !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    overflow-y: hidden !important;
 }
 
 @media screen and (min-width: 1024px) {
     ly-c, .aside {
         float: right;
-        max-width: 40%;
+        max-width: 35%;
     }
-    img.main, .MathJax {
-        max-width: 60% !important;
+    img.main, .MathJax, .MathJax_Display {
+        max-width: 65% !important;
     }
 }
 @media screen and (max-width: 1023px) {
@@ -113,7 +125,7 @@ img.main {
         float: none;
         max-width: 100%;
     }
-    img.main, .MathJax {
+    img.main, .MathJax, .MathJax_Display {
         max-width: 100% !important;
     }
 }
