@@ -7,7 +7,6 @@
 // Math definitions
 ly-d {
     display: block;
-    overflow: auto;
 }
 
 // Math notations(LaTeX rendered using `$' pairs)
@@ -105,10 +104,15 @@ img.main {
     float: none;
 }
 
+img.inline {
+    display: inline;
+    width: 2rem;
+}
+
 .MathJax {
     outline: 0 !important;
     -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
-    overflow-y: hidden !important;
+    overflow: hidden !important;
 }
 
 @media screen and (min-width: 1024px) {
