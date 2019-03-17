@@ -12,8 +12,10 @@
                   <br />
                   <small>{{ site.tagline }}</small>
               </h3>
-              <br />
-              <div id="tabs">
+            </header>
+            <div class="notheader">
+              <nav>
+                <div id="tabs">
                   <table class="tabs">
                       <tr>
                           <td class="tabs"><a href="javascript:toggleToc();">本篇目录</a></td>
@@ -151,7 +153,7 @@
                     }
                 });
               </script>
-          </header>
+          </nav>
           <main>
             <div class="hidden" style="display:none">$\newcommand{\paral}{\unicode{x25B1}}$</div>
             {{ content }}
@@ -162,6 +164,7 @@
                   &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time> Zhang Maiyun. All rights reserved.
               </small>
           </footer>
+        </div>
       </div>
   </body>
 </html>
