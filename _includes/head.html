@@ -22,7 +22,7 @@
                 linebreaks: {
                     automatic: true,
                     width: "container"
-                }          
+                }
             },
             displayAlign: "left",
             displayIndent: "0em",
@@ -61,15 +61,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <![endif]-->
     <script>
-        function setCookie(key, value) {
-            var expires = new Date();
-            expires.setTime(expires.getTime() + (1 * 365 * 24 * 60 * 60 * 1000));
-            document.cookie = key + '=' + value +';path=/'+ ';expires=' + expires.toUTCString();
-        }
-        function getCookie(key) {
-            var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-            return keyValue ? keyValue[2] : null;
-        }
     </script>
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />

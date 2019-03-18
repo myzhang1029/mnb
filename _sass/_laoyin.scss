@@ -54,14 +54,6 @@ ly-q:after {
 	content: '”';
 	content: close-quote;
 }
-ly-q ly-q:before {
-	content: '‘';
-	content: open-quote;
-}
-ly-q ly-q:after {
-	content: '’';
-	content: close-quote;
-}
 
 // Not appropriate words/sentences
 ly-r {
