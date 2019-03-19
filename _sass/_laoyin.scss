@@ -18,19 +18,19 @@ ly-d {
 // to explain how to use the definition(LaTeX rendered using `$$' pairs)
 ly-b {
     display: block;
-    overflow: auto;
+    overflow: hidden;
     margin-bottom: 1.3rem;
 }
 
 div {
-    overflow: auto;
+    overflow: hidden;
     margin-bottom: 1.3rem;
 }
 
 // Examples
 ly-e {
     display: block;
-    overflow: auto;
+    overflow: hidden;
     margin-bottom: 1.3rem;
 }
 
@@ -40,19 +40,17 @@ ly-e {
 // towhom: said to whom.
 ly-q {
     display: block;
-    overflow: auto;
+    overflow: hidden;
     margin: 2rem 0rem 1.5rem 1.5rem;
     border-left: 0.5rem solid #DDD;
 }
 
 ly-q:before {
 	content: '“';
-	content: open-quote;
 }
 
 ly-q:after {
 	content: '”';
-	content: close-quote;
 }
 
 // Not appropriate words/sentences

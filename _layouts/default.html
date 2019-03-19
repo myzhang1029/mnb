@@ -88,9 +88,9 @@
                       towhom = "与" + $(this).attr("towhom");
                     }
                     if ($(this).attr("date") != undefined) {
-                      date = $(this).attr("date");
+                      date = "<br />——" + $(this).attr("date");
                     }
-                    strToAdd = original + "”" + "<br />——" + date + towhom;
+                    strToAdd = original + "”" + date + towhom;
                     $(this).html(strToAdd);
                   });
                   /* After it's done, remove the old close quote */
@@ -144,6 +144,7 @@
                     $("main").find("*").hide();
                     $("main").find("ly-q").show();
                     $("main").find("ly-q").parents().show();
+                    $("main").find("br").show();
                     if ($("#showexam").is(":checked")) {
                       $("#showexam").click();
                     }
