@@ -1,4 +1,4 @@
-// lyq.js: formatting the laoyin quotes
+// lyq.js: formatting the laoyin quotes and controlling the page functions
 function setCookie(key, value) {
   var expires = new Date();
   expires.setTime(expires.getTime() + (1 * 365 * 24 * 60 * 60 * 1000));
@@ -7,6 +7,25 @@ function setCookie(key, value) {
 function getCookie(key) {
   var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
   return keyValue ? keyValue[2] : null;
+}
+function resizeTitleBar() {
+  $(".masthead").css("width", $("main").width());
+  $("main").css("top", $(".masthead").height()+20);
+}
+function toggleToc() {
+  $('#sitemenu').hide();
+  $('#options').hide();
+  $('#toc').slideToggle();
+}
+function toggleMenu() {
+  $('#toc').hide();
+  $('#options').hide();
+  $('#sitemenu').slideToggle();
+}
+function toggleOptions() {
+  $('#toc').hide();
+  $('#sitemenu').hide();
+  $('#options').slideToggle();
 }
 $(document).ready(function() {
   $('#toc').toc({
@@ -28,6 +47,12 @@ $(document).ready(function() {
   if (getCookie("onlylyq") == "true") {
     $("#onlylyq").click();
   }
+  /* Set the .masthead to be fixed to the top */
+  $(".masthead").css("position", "fixed");
+  $(".masthead").css("z-index", "99");
+  $(".masthead").css("background-color", "white");
+  $("main").css("position", "relative");
+  resizeTitleBar();
   /* Append date and to whom data to lyq */
   $("ly-q").each(function(i) {
     var towhom = "", date="", strToAdd="";
@@ -44,21 +69,6 @@ $(document).ready(function() {
   /* After it's done, remove the old close quote */
   $("head").append("<style>ly-q:after{content:''}</style>");
 });
-function toggleToc() {
-  $('#sitemenu').hide();
-  $('#options').hide();
-  $('#toc').slideToggle();
-}
-function toggleMenu() {
-  $('#toc').hide();
-  $('#options').hide();
-  $('#sitemenu').slideToggle();
-}
-function toggleOptions() {
-  $('#toc').hide();
-  $('#sitemenu').hide();
-  $('#options').slideToggle();
-}
 $("#showlyq").click(function() {
   if ($(this).prop("checked")) {
     setCookie("showlyq", "true");
@@ -71,6 +81,7 @@ $("#showlyq").click(function() {
     }
   }
 });
+$(window).resize(resizeTitleBar);
 $("#showexam").click(function() {
   if ($(this).prop("checked")) {
     setCookie("showexam", "true");
