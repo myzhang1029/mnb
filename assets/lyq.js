@@ -10,7 +10,9 @@ function getCookie(key) {
 }
 function resizeTitleBar() {
   $(".masthead").css("width", $("main").width());
-  $("main").css("top", $(".masthead").height()+20);
+  $("main").css("top", $(".masthead").outerHeight(true));
+  $("footer").css("top", $(".masthead").height()*0.85);
+  $(".container").css("height", $(".masthead").outerHeight(true) + $("main").outerHeight(true) + $("footer").outerHeight(true));
 }
 function toggleToc() {
   $('#sitemenu').hide();
@@ -52,6 +54,7 @@ $(document).ready(function() {
   $(".masthead").css("z-index", "99");
   $(".masthead").css("background-color", "white");
   $("main").css("position", "relative");
+  $("footer").css("position", "relative");
   resizeTitleBar();
   /* Append date and to whom data to lyq */
   $("ly-q").each(function(i) {

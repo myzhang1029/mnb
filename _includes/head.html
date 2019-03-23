@@ -59,8 +59,82 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=Tex-AMS_HTML" async></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <![endif]-->
-    <script src="{{ site.baseurl }}/assets/lyq.js"></script>
     <script src="{{ site.baseurl }}/assets/toc.js"></script>
+    <script>
+function setCookie(key, value) {
+  var expires = new Date();
+  expires.setTime(expires.getTime() + (1 * 365 * 24 * 60 * 60 * 1000));
+  document.cookie = key + '=' + value +';path=/'+ ';expires=' + expires.toUTCString();
+}
+function getCookie(key) {
+  var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+  return keyValue ? keyValue[2] : null;
+}
+function resizeTitleBar() {
+  $(".masthead").css("width", $("main").width());
+  $("main").css("top", $(".masthead").outerHeight(true));
+  $("footer").css("top", $(".masthead").height()*0.85);
+  $(".container").css("height", $(".masthead").outerHeight(true) + $("main").outerHeight(true) + $("footer").outerHeight(true));
+}
+function toggleToc() {
+  $('#sitemenu').hide();
+  $('#options').hide();
+  $('#toc').slideToggle();
+}
+function toggleMenu() {
+  $('#toc').hide();
+  $('#options').hide();
+  $('#sitemenu').slideToggle();
+}
+function toggleOptions() {
+  $('#toc').hide();
+  $('#sitemenu').hide();
+  $('#options').slideToggle();
+}
+$(document).ready(function() {
+  $('#toc').toc({
+    listType: 'ul',
+    title: ''
+  });
+  $('#toc').hide();
+  $('#sitemenu').hide();
+  $('#options').hide();
+  if (getCookie("showlyq") == "false") {
+    $("#showlyq").click();
+  }
+  if (getCookie("showexam") == "false") {
+    $("#showexam").click();
+  }
+  if (getCookie("showorig") == "true") {
+    $("#showorig").click();
+  }
+  if (getCookie("onlylyq") == "true") {
+    $("#onlylyq").click();
+  }
+  /* Set the .masthead to be fixed to the top */
+  $(".masthead").css("position", "fixed");
+  $(".masthead").css("z-index", "99");
+  $(".masthead").css("background-color", "white");
+  $("main").css("position", "relative");
+  $("footer").css("position", "relative");
+  resizeTitleBar();
+  /* Append date and to whom data to lyq */
+  $("ly-q").each(function(i) {
+    var towhom = "", date="", strToAdd="";
+    var original = $(this).html();
+    if ($(this).attr("towhom") != undefined) {
+      towhom = "与" + $(this).attr("towhom");
+    }
+    if ($(this).attr("date") != undefined) {
+      date = "<br />——" + $(this).attr("date");
+    }
+    strToAdd = original + "”" + date + towhom;
+    $(this).html(strToAdd);
+  });
+  /* After it's done, remove the old close quote */
+  $("head").append("<style>ly-q:after{content:''}</style>");
+});
+    </script>
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />
     <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico" />

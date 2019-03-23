@@ -49,12 +49,80 @@
               </div>
             </div>
           </nav>
+          <script>
+$("#showlyq").click(function() {
+  if ($(this).prop("checked")) {
+    setCookie("showlyq", "true");
+    $("ly-q").show();
+  } else {
+    setCookie("showlyq", "false");
+    $("ly-q").hide();
+    if ($("#onlylyq").is(":checked")) {
+      $("#onlylyq").click();
+    }
+  }
+});
+$(window).resize(resizeTitleBar);
+$("#showexam").click(function() {
+  if ($(this).prop("checked")) {
+    setCookie("showexam", "true");
+    $("ly-e").show();
+    if ($("#onlylyq").is(":checked")) {
+      $("#onlylyq").click();
+    }
+  } else {
+    setCookie("showexam", "false");
+    $("ly-e").hide();
+  }
+});
+$("#onlylyq").click(function() {
+  if ($(this).prop("checked")) {
+    setCookie("onlylyq", "true");
+    if (!$("#showlyq").is(":checked")) {
+      $("#showlyq").click();
+    }
+    $("main").find("*").hide();
+    $("main").find("ly-q").show();
+    $("main").find("ly-q").parents().show();
+    $("main").find("br").show();
+    if ($("#showexam").is(":checked")) {
+      $("#showexam").click();
+    }
+    if ($("#showorig").is(":checked")) {
+      $("#showorig").click();
+    }
+  } else {
+    setCookie("onlylyq", "false");
+    $("main").find("*").show();
+    $("main").find("ly-r").hide();
+    $("main").find("ly-old").hide();
+    $("main").find(".hidden").hide();
+    if (!$("#showexam").is(":checked")) {
+      $("ly-e").hide();
+    }
+    $("script[type*='math/tex']").hide();
+  }
+});
+$("#showorig").click(function() {
+  if ($(this).prop("checked")) {
+    setCookie("showorig", "true");
+    $("ly-r").css("display", "inline");
+    $("ly-a").css("display", "none");
+    if ($("#onlylyq").is(":checked")) {
+      $("#onlylyq").click();
+    }
+  } else {
+    setCookie("showorig", "false");
+    $("ly-a").css("display", "inline");
+    $("ly-r").css("display", "none");
+  }
+});
+        </script>
         </header>
         <main>
           <div class="hidden" style="display:none">$\newcommand{\paral}{\unicode{x25B1}}$</div>
           {{ content }}
         </main>
-
         <footer class="footer">
           <small>
             &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time> Zhang Maiyun. All rights reserved.
