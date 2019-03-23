@@ -42,7 +42,7 @@ ly-q {
     display: block;
     overflow: hidden;
     margin: 2rem 0rem 1.5rem 1.5rem;
-    border-left: 0.5rem solid #DDD;
+    border-left: 0.5rem solid $lyq-border-color;
 }
 
 ly-q:before {
