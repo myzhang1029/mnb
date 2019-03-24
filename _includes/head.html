@@ -74,7 +74,7 @@ function resizeTitleBar() {
   $(".masthead").css("width", $("main").width());
   $("main").css("top", $(".masthead").outerHeight(true));
   $("footer").css("top", $(".masthead").height()*0.85);
-  $(".container").css("height", $(".masthead").outerHeight(true) + $("main").outerHeight(true) + $("footer").outerHeight(true));
+  $("#adjustheight").height($(".masthead").outerHeight(true));
 }
 function toggleToc() {
   $('#sitemenu').hide();
