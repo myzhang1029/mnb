@@ -25,9 +25,4 @@ version:             2.0.0
 github:
   repo:              https://gitlab.com/myzhang1029/mnb
 
-# Gems
-plugins:
-  - jekyll-paginate
-  - jekyll-gist
-
 markdown: kramdown
