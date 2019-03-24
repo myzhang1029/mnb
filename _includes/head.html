@@ -73,7 +73,7 @@ function getCookie(key) {
 function resizeTitleBar() {
   $(".masthead").css("width", $("main").width());
   $("main").css("top", $(".masthead").outerHeight(true));
-  $("footer").css("top", $(".masthead").height()*0.85);
+  $("footer").css("top", $(".masthead").outerHeight(true));
   $("#adjustheight").height($(".masthead").outerHeight(true));
 }
 function toggleToc() {
