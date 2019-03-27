@@ -91,35 +91,39 @@ ly-rep{
 }
 
 img.main {
-    float: none;
+  float: none;
 }
 
 img.inline {
-    display: inline;
-    width: 2rem;
+  display: inline;
+  width: 2rem;
 }
 
 .MathJax {
-    outline: 0 !important;
-    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
-    overflow: hidden !important;
+  outline: 0 !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  overflow: hidden !important;
+}
+
+.MathJax_Display {
+  margin-bottom: 0 !important;
 }
 
 @media screen and (min-width: 1024px) {
-    ly-c, .aside {
-        float: right;
-        max-width: 35%;
-    }
-    img.main, .MathJax, .MathJax_Display {
-        max-width: 65% !important;
-    }
+  ly-c, .aside {
+    float: right;
+    max-width: 35%;
+  }
+  img.main, .MathJax, .MathJax_Display {
+    max-width: 65% !important;
+  }
 }
 @media screen and (max-width: 1023px) {
-    ly-c, .aside {
-        float: none;
-        max-width: 100%;
-    }
-    img.main, .MathJax, .MathJax_Display {
-        max-width: 100% !important;
-    }
+  ly-c, .aside {
+    float: none;
+    max-width: 100%;
+  }
+  img.main, .MathJax, .MathJax_Display {
+    max-width: 100% !important;
+  }
 }
