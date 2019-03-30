@@ -84,19 +84,30 @@ u {
 
 ol.circled {
   list-style: none;
-  counter-reset: item;
 }
 ol.circled > li {
-  counter-increment: item;
   margin-bottom: 5px;
-  &:before {
-    margin-right: 10px;
-    content: counter(item);
-    background: lightblue;
-    border-radius: 100%;
-    color: white;
-    width: 1.2em;
-    text-align: center;
-    display: inline-block;
+  &:nth-child(1):before {
+    content: "\2460";
   }
+  &:nth-child(2):before {
+    content: "\2461";
+  }
+  &:nth-child(3):before {
+    content: "\2462";
+  }
+  &:nth-child(4):before {
+    content: "\2463";
+  }
+  &:nth-child(5):before {
+    content: "\2464";
+  }
+  &:nth-child(6):before {
+    content: "\2465";
+  }
+}
+/* Firefox only */
+@counter-style circled {
+  system: fixed;suffix: " ";
+  symbols: ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳;
 }
