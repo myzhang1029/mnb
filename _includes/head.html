@@ -32,7 +32,12 @@
                 displayMath: [['$$','$$']],
                 skipTags: ["script","noscript","style","textarea","pre","code"],
                 processEscapes: true
-            }
+            },
+            showMathMenu: false,
+            messageStyle: "simple"
+        });
+        MathJax.Hub.Register.StartupHook("End",function() {
+          $(".MathJax").not(".MathJax_Display").parent().css("line-height", "2em");
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" async></script>

@@ -45,11 +45,14 @@
                   <input type="checkbox" name="onlylyq" id="onlylyq" /><label for="onlylyq">只看老尹语录</label>
                   <br />
                   <input type="checkbox" name="showorig" id="showorig" /><label for="showorig">原文（否则是我修改过的）</label>
+                  <br />
+                  <input type="checkbox" name="showfinal" id="showfinal" /><label for="showfinal">最终内容</label>
                 </form>
               </div>
             </div>
           </nav>
           <script>
+$(window).resize(resizeTitleBar);
 $("#showlyq").click(function() {
   if ($(this).prop("checked")) {
     setCookie("showlyq", "true");
@@ -62,7 +65,6 @@ $("#showlyq").click(function() {
     }
   }
 });
-$(window).resize(resizeTitleBar);
 $("#showexam").click(function() {
   if ($(this).prop("checked")) {
     setCookie("showexam", "true");
@@ -115,6 +117,20 @@ $("#showorig").click(function() {
     setCookie("showorig", "false");
     $("ly-a").css("display", "inline");
     $("ly-r").css("display", "none");
+  }
+});
+$("#showfinal").click(function() {
+  if ($(this).prop("checked")) {
+    setCookie("showfinal", "true");
+    $("ly-rep").css("display", "inline");
+    $("ly-old").css("display", "none");
+    if ($("#onlylyq").is(":checked")) {
+      $("#onlylyq").click();
+    }
+  } else {
+    setCookie("showfinal", "false");
+    $("ly-old").css("display", "inline");
+    $("ly-rep").css("display", "none");
   }
 });
         </script>

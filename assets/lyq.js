@@ -11,23 +11,42 @@ function getCookie(key) {
 function resizeTitleBar() {
   $(".masthead").css("width", $("main").width());
   $("main").css("top", $(".masthead").outerHeight(true));
-  $("footer").css("top", $(".masthead").height()*0.85);
-  $(".container").css("height", $(".masthead").outerHeight(true) + $("main").outerHeight(true) + $("footer").outerHeight(true));
+  $("footer").css("top", $(".masthead").outerHeight(true));
+  $("#adjustheight").height($(".masthead").outerHeight(true));
+}
+function checkVisibility() {
+  if ($("#toc").is(":visible")) {
+    $("#toggletoc").css("border-bottom", "3px #313131 solid");
+  } else {
+    $("#toggletoc").css("border-bottom", "1px #e5e5e5 solid");
+  }
+  if ($("#sitemenu").is(":visible")) {
+    $("#togglemenu").css("border-bottom", "3px #313131 solid");
+  } else {
+    $("#togglemenu").css("border-bottom", "1px #e5e5e5 solid");
+  }
+  if ($("#options").is(":visible")) {
+    $("#toggleoptions").css("border-bottom", "3px #313131 solid");
+  } else {
+    $("#toggleoptions").css("border-bottom", "1px #e5e5e5 solid");
+  }
+  /* The size of .masthead must have changed */
+  resizeTitleBar();
 }
 function toggleToc() {
   $('#sitemenu').hide();
   $('#options').hide();
-  $('#toc').slideToggle();
+  $('#toc').slideToggle(checkVisibility);
 }
 function toggleMenu() {
   $('#toc').hide();
   $('#options').hide();
-  $('#sitemenu').slideToggle();
+  $('#sitemenu').slideToggle(checkVisibility);
 }
 function toggleOptions() {
   $('#toc').hide();
   $('#sitemenu').hide();
-  $('#options').slideToggle();
+  $('#options').slideToggle(checkVisibility);
 }
 $(document).ready(function() {
   $('#toc').toc({
@@ -48,6 +67,9 @@ $(document).ready(function() {
   }
   if (getCookie("onlylyq") == "true") {
     $("#onlylyq").click();
+  }
+  if (getCookie("showfinal") == "true") {
+    $("#showfinal").click();
   }
   /* Set the .masthead to be fixed to the top */
   $(".masthead").css("position", "fixed");
@@ -71,71 +93,4 @@ $(document).ready(function() {
   });
   /* After it's done, remove the old close quote */
   $("head").append("<style>ly-q:after{content:''}</style>");
-});
-$("#showlyq").click(function() {
-  if ($(this).prop("checked")) {
-    setCookie("showlyq", "true");
-    $("ly-q").show();
-  } else {
-    setCookie("showlyq", "false");
-    $("ly-q").hide();
-    if ($("#onlylyq").is(":checked")) {
-      $("#onlylyq").click();
-    }
-  }
-});
-$(window).resize(resizeTitleBar);
-$("#showexam").click(function() {
-  if ($(this).prop("checked")) {
-    setCookie("showexam", "true");
-    $("ly-e").show();
-    if ($("#onlylyq").is(":checked")) {
-      $("#onlylyq").click();
-    }
-  } else {
-    setCookie("showexam", "false");
-    $("ly-e").hide();
-  }
-});
-$("#onlylyq").click(function() {
-  if ($(this).prop("checked")) {
-    setCookie("onlylyq", "true");
-    if (!$("#showlyq").is(":checked")) {
-      $("#showlyq").click();
-    }
-    $("main").find("*").hide();
-    $("main").find("ly-q").show();
-    $("main").find("ly-q").parents().show();
-    $("main").find("br").show();
-    if ($("#showexam").is(":checked")) {
-      $("#showexam").click();
-    }
-    if ($("#showorig").is(":checked")) {
-      $("#showorig").click();
-    }
-  } else {
-    setCookie("onlylyq", "false");
-    $("main").find("*").show();
-    $("main").find("ly-r").hide();
-    $("main").find("ly-old").hide();
-    $("main").find(".hidden").hide();
-    if (!$("#showexam").is(":checked")) {
-      $("ly-e").hide();
-    }
-    $("script[type*='math/tex']").hide();
-  }
-});
-$("#showorig").click(function() {
-  if ($(this).prop("checked")) {
-    setCookie("showorig", "true");
-    $("ly-r").css("display", "inline");
-    $("ly-a").css("display", "none");
-    if ($("#onlylyq").is(":checked")) {
-      $("#onlylyq").click();
-    }
-  } else {
-    setCookie("showorig", "false");
-    $("ly-a").css("display", "inline");
-    $("ly-r").css("display", "none");
-  }
 });

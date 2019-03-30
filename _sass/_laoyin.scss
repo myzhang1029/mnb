@@ -6,7 +6,7 @@
 
 // Math definitions
 ly-d {
-    display: block;
+  display: block;
 }
 
 // Math notations(LaTeX rendered using `$' pairs)
@@ -17,21 +17,21 @@ ly-d {
 // Block math notations under definitions
 // to explain how to use the definition(LaTeX rendered using `$$' pairs)
 ly-b {
-    display: block;
-    overflow: hidden;
-    margin-bottom: 1.3rem;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 1.3rem;
 }
 
 div {
-    overflow: hidden;
-    margin-bottom: 1.3rem;
+  overflow: hidden;
+  margin-bottom: 1.3rem;
 }
 
 // Examples
 ly-e {
-    display: block;
-    overflow: hidden;
-    margin-bottom: 1.3rem;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 1.3rem;
 }
 
 // Laoyin quotes
@@ -39,43 +39,41 @@ ly-e {
 // date: the date.
 // towhom: said to whom.
 ly-q {
-    display: block;
-    overflow: hidden;
-    margin: 2rem 0rem 1.5rem 1.5rem;
-    border-left: 0.5rem solid $lyq-border-color;
-}
-
-ly-q:before {
-	content: '“';
-}
-
-ly-q:after {
-	content: '”';
+  display: block;
+  overflow: hidden;
+  margin: 2rem 0rem 1.5rem 1.5rem;
+  border-left: 0.5rem solid $lyq-border-color;
+  &:before {
+	  content: '“';
+  }
+  &:after {
+    content: '”';
+  }
 }
 
 // Not appropriate words/sentences
 ly-r {
-    display: none;
+  display: none;
 }
 
 // Added by writer
 ly-a {
-    display: inline;
+  display: inline;
 }
 
 // Comment, showed on the right side
 ly-c {
-    font-style: italic;
-    display: block;
+  font-style: italic;
+  display: block;
 }
 
 // Dynamic note animation: Old contents
 ly-old {
-    display: none;
 }
 
 // Dynamic note animation: Contents replacing old contents
 ly-rep{
+  display: none;
 }
 
 // Our teacher usually draw a regtangle box to indicate tha sth. is ignored here,
@@ -109,7 +107,7 @@ img.inline {
   margin-bottom: 0 !important;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $large-breakpoint) {
   ly-c, .aside {
     float: right;
     max-width: 35%;
@@ -118,7 +116,7 @@ img.inline {
     max-width: 65% !important;
   }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: $large-breakpoint) {
   ly-c, .aside {
     float: none;
     max-width: 100%;
