@@ -93,4 +93,10 @@ $(document).ready(function() {
   });
   /* After it's done, remove the old close quote */
   $("head").append("<style>ly-q:after{content:''}</style>");
+  /* Use png alternatives for browsers that does not support SVG */
+  if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1") == false) {
+    $("img").attr("src", function(i, val) {
+      return val + ".png";
+    });
+  }
 });
