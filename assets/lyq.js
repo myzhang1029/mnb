@@ -9,7 +9,21 @@ function getCookie(key) {
   return keyValue ? keyValue[2] : null;
 }
 function resizeTitleBar() {
-  $(".masthead").css("width", $("main").width());
+  /* The width, left and right margin and padding are the same as the container */
+  $("#notmoving").css("width", $(".container").innerWidth());
+  $("#notmoving").css("margin-left", $(".container").css("margin-left"));
+  $("#notmoving").css("padding-left", $(".container").css("padding-left"));
+  $("#notmoving").css("margin-right", $(".container").css("margin-right"));
+  $("#notmoving").css("padding-right", $(".container").css("padding-right"));
+  $("#dropdown").css("width", $(".container").innerWidth() - 2 * parseInt($(".container").css("padding-right")));
+  $("#dropdown").css("left", $(".container").css("padding-left"));
+  $("#dropdown").css("margin-left", $(".container").css("margin-left"));
+  $(".masthead").css("height", $("#notmoving").outerHeight(true) + $("#dropdown").outerHeight(true) + 2 * parseInt($(".masthead").css("padding-top")));
+  $(".masthead").css("width", $(".container").innerWidth());
+  $(".masthead").css("margin-left", $(".container").css("margin-left"));
+  $(".masthead").css("padding-left", $(".container").css("padding-left"));
+  $(".masthead").css("margin-right", $(".container").css("margin-right"));
+  $(".masthead").css("padding-right", $(".container").css("padding-right"));
   $("main").css("top", $(".masthead").outerHeight(true));
   $("footer").css("top", $(".masthead").outerHeight(true));
   $("#adjustheight").height($(".masthead").outerHeight(true));
@@ -51,7 +65,8 @@ function toggleOptions() {
 $(document).ready(function() {
   $('#toc').toc({
     listType: 'ul',
-    title: ''
+    title: '',
+    headers: 'h1'
   });
   $('#toc').hide();
   $('#sitemenu').hide();
@@ -73,8 +88,17 @@ $(document).ready(function() {
   }
   /* Set the .masthead to be fixed to the top */
   $(".masthead").css("position", "fixed");
-  $(".masthead").css("z-index", "99");
-  $(".masthead").css("background-color", "white");
+  $(".masthead").css("top", "0px");
+  $(".masthead").css("left", "0px");
+  $(".masthead").css("z-index", "98");
+  $("#notmoving").css("position", "fixed");
+  $("#notmoving").css("top", $(".masthead").css("padding-top"));
+  $("#notmoving").css("left", "0px");
+  $("#notmoving").css("z-index", "99");
+  $("#dropdown").css("position", "fixed");
+  $("#dropdown").css("top", parseInt($(".masthead").css("padding-top")) + $("#notmoving").outerHeight(true) + 1.24);
+  $("#dropdown").css("left", "0px");
+  $("#dropdown").css("z-index", "99");
   $("main").css("position", "relative");
   $("footer").css("position", "relative");
   resizeTitleBar();

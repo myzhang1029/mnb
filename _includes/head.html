@@ -1,56 +1,55 @@
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>
-        {% if page.title == "Home" %}
-        {{ site.title }} &middot; {{ site.tagline }}
-        {% else %}
-        {{ page.title }} &middot; {{ site.title }}
-        {% endif %}
-    </title>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            jax: ["input/TeX","output/HTML-CSS"],
-            extensions: ["tex2jax.js"],
-            TeX: {
-                extensions: ["AMSmath.js","AMSsymbols.js","newcommand.js","unicode.js","noUndefined.js"]
-            },
-            "HTML-CSS": {
-                linebreaks: {
-                    automatic: true,
-                    width: "container"
-                },
-                undefinedFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif'
-            },
-            displayAlign: "left",
-            displayIndent: "0em",
-            tex2jax: {
-                inlineMath: [['$','$']],
-                displayMath: [['$$','$$']],
-                skipTags: ["script","noscript","style","textarea","pre","code"],
-                processEscapes: true
-            },
-            showMathMenu: false,
-            messageStyle: "simple"
-        });
-        MathJax.Hub.Register.StartupHook("End",function() {
-          $(".MathJax").not(".MathJax_Display").parent().css("line-height", "2em");
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" async></script>
-    <!--[if lt IE 9>
-        <script src="{{ site.baseurl }}/assets/css3mq.js"></script>
-        <script src="{{ site.baseurl }}/assets/html5.js"></script>
-        <style>article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}</style>
-        <script>(function(){var e="ly-d,ly-b,ly-e,ly-q,ly-r,ly-a,ly-c,ly-old,ly-rep".split(','), i=e.length;while(i-=1)
-            {document.createElement(e[i]);}})();
-        </script>
-    <![endif]-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{{ site.baseurl }}/assets/toc.js"></script>
-    <script src="{{ site.baseurl }}/assets/lyq.js"></script>
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />
-    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico" />
+  <title>
+    {% if page.title == "Home" %}
+    {{ site.title }} &middot; {{ site.tagline }}
+    {% else %}
+    {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX","output/HTML-CSS"],
+      extensions: ["tex2jax.js"],
+      TeX: {
+        extensions: ["AMSmath.js","AMSsymbols.js","newcommand.js","unicode.js","noUndefined.js"]
+      },
+      "HTML-CSS": {
+        linebreaks: {
+          automatic: true,
+          width: "container"
+        },
+        undefinedFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif'
+      },
+      displayAlign: "left",
+      displayIndent: "0em",
+      tex2jax: {
+        inlineMath: [['$','$']],
+        displayMath: [['$$','$$']],
+        skipTags: ["script","noscript","style","textarea","pre","code"],
+        processEscapes: true
+      },
+      showMathMenu: false,
+      messageStyle: "simple"
+    });
+    MathJax.Hub.Register.StartupHook("End",function() {
+      $(".MathJax").not(".MathJax_Display").parent().css("line-height", "2em");
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" async></script>
+  <!--[if lt IE 9>
+  <script src="{{ site.baseurl }}/assets/css3mq.js"></script>
+  <script src="{{ site.baseurl }}/assets/html5.js"></script>
+  <style>article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}</style>
+  <script>(function(){var e="ly-d,ly-b,ly-e,ly-q,ly-r,ly-a,ly-c,ly-old,ly-rep".split(','), i=e.length;while(i-=1)
+  {document.createElement(e[i]);}})();</script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/toc.js"></script>
+  <script src="{{ site.baseurl }}/assets/lyq.js"></script>
+  <link rel="stylesheet" href="{{ site.baseurl }}/styles.css" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico" />
 </head>
