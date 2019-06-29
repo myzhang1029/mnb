@@ -4,28 +4,20 @@
 
 .masthead {
   padding: 1rem 0.5rem 0.5rem;
+  background-color: $body-bg;
   // Big screens
   @media screen and (min-width: $large-breakpoint) {
     box-shadow: 2px 2px 3px #aaaaaa;
-    background-color: $body-bg;
   }
   // Small screens
   @media screen and (max-width: $large-breakpoint) {
     border-bottom: 1px solid $border-color;
-    background-color: $gray-4;
   }
 }
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  @media screen and (min-width: $large-breakpoint) {
-    color: $gray-4;
-    background-color: $body-bg;
-  }
-  @media screen and (max-width: $large-breakpoint) {
-    color: $body-bg;
-    background-color: $gray-4;
-  }
+  color: $gray-4;
 
   a {
     color: inherit;
@@ -41,17 +33,28 @@
 // Styles for the navigator menu
 #toc, #sitemenu, #options {
   display: none; // So they won't display if javascript isn't enabled
-  background-color: $body-bg;
-  border: 1px solid $border-color;
   border-top: 0;
-  padding-top: 0.25em;
+  padding-top: 0.25rem;
   margin-bottom: 0;
 }
 
 #options {
-  padding: 0.25em 0 0.5em 0.5em;
+  padding: 0.25rem 0 0.5rem 0.5rem;
 }
 
+#notmoving {
+  margin: 0;
+}
+
+#dropdown {
+  border: 1px solid $border-color;
+  border-top: 0;
+  max-height: 30%;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+// Overwriting styles
 td.tabs {
   text-align: center;
   a {
@@ -60,13 +63,6 @@ td.tabs {
   background-color: $body-bg !important;
 }
 
-#notmoving {
-  margin: 0;
-}
-
-#dropdown {
-  max-height: 30%;
-  overflow-y: scroll;
-  margin: 0;
-  background-color: $body-bg;
+ul.toc_ul {
+  margin-bottom: 0 !important;
 }

@@ -81,6 +81,7 @@ $(document).ready(function() {
     minimumHeaders: 1,
     headers: 'h1',
     classes: {
+      list: "toc_ul",
       item: "toc_li"
     }
   });
@@ -126,13 +127,14 @@ $(document).ready(function() {
   /* It has padding-left */
   $("#notmoving").css("left", "0px");
   /* Higher than .masthead */
-  $("#notmoving").css("z-index", "99");
+  $("#notmoving").css("z-index", "100");
   $("#dropdown").css("position", "fixed");
   /* Lower than #notmoving */
   /* It the screen width change across $large-breakpoint, the behavoir is still
   weird, but it doesn't matter */
   $("#dropdown").css("top", parseInt($(".masthead").css("padding-top")) + $("#notmoving").outerHeight(true) + 1.24/* magic */);
   $("#dropdown").css("left", $(".container").css("padding-left"));
+  /* A bit lower, so that the borders don't run into each other */
   $("#dropdown").css("z-index", "99");
   /* These values don't change */
   $("#notmoving").css("padding-left", $(".container").css("padding-left"));
