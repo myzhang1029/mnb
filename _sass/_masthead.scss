@@ -5,15 +5,23 @@
 .masthead {
   padding: 1rem 0.5rem 0.5rem;
   background-color: $body-bg;
-  // Big screens
-  @media screen and (min-width: $large-breakpoint) {
-    box-shadow: 2px 2px 3px #aaaaaa;
-  }
-  // Small screens
-  @media screen and (max-width: $large-breakpoint) {
-    border-bottom: 1px solid $border-color;
-  }
+  border-bottom: 1px solid $border-color;
 }
+
+#masthead-button {
+  position: fixed;
+  z-index: 101;
+  top: 1.5rem;
+  left: 1rem;
+  height: 3rem;
+  width: 3rem;
+  border: 2px outset ThreeDLightShadow;
+  border-radius: 1.5rem; // Circle
+  background-color: $gray-4;
+  font-size: 0.5rem;
+  color: $body-bg;
+}
+
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0.5rem;

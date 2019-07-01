@@ -6,6 +6,7 @@
 <body>
   <noscript><h1 class="message">您的浏览器不支持JavaScript，您将无法正确领略老尹的伟大智慧</h1></noscript>
   <div class="container content">
+  <button id="masthead-button">Toggle Titlebar</button>
     <header class="masthead">
       <div id="notmoving">
         <h3 class="masthead-title">
@@ -133,6 +134,9 @@
           $("ly-rep").css("display", "none");
         }
       });
+      $("#masthead-button").click(function() {
+        $(".masthead").toggle(checkVisibility);
+      })
       </script>
     </header>
     <main>

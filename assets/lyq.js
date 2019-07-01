@@ -62,17 +62,17 @@ function checkVisibility() {
 function toggleToc() {
   $('#sitemenu').hide();
   $('#options').hide();
-  $('#toc').slideToggle(200, checkVisibility);
+  $('#toc').toggle(checkVisibility);
 }
 function toggleMenu() {
   $('#toc').hide();
   $('#options').hide();
-  $('#sitemenu').slideToggle(200, checkVisibility);
+  $('#sitemenu').toggle(checkVisibility);
 }
 function toggleOptions() {
   $('#toc').hide();
   $('#sitemenu').hide();
-  $('#options').slideToggle(200, checkVisibility);
+  $('#options').toggle(checkVisibility);
 }
 $(document).ready(function() {
   $('#toc').toc({
