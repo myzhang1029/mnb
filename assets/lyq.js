@@ -35,7 +35,7 @@ function resizeTitleBar() {
   $("main").css("top", $(".masthead").outerHeight(true));
   $("footer").css("top", $(".masthead").outerHeight(true));
   /* Extend $(document) so that moved contents won't be cropped */
-  $("#adjustheight").height($(".masthead").outerHeight(true));
+  $("footer").css("margin-bottom", $(".masthead").outerHeight(true));
 }
 
 /* Display a thicker bar under selected tab */
@@ -92,7 +92,7 @@ $(document).ready(function() {
       /* Scroll down a bit */
       setTimeout(function() {
         $(document).scrollTop($(document).scrollTop() -
-        $("#adjustheight").outerHeight(true));
+        $(".masthead").outerHeight(true));
       }, 100);
     });
   })
