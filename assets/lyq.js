@@ -91,8 +91,7 @@ $(document).ready(function() {
       toggleToc();
       /* Scroll down a bit */
       setTimeout(function() {
-        $(document).scrollTop($(document).scrollTop() -
-        $(".masthead").outerHeight(true));
+        scrollBy(0, -$(".masthead").outerHeight(true));
       }, 100);
     });
   })
