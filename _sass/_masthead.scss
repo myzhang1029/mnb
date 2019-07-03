@@ -69,6 +69,9 @@ td.tabs {
     color: $gray-4;
   }
   background-color: $body-bg !important;
+  &.selected {
+    border-bottom: 3px #313131 solid;
+  }
 }
 
 ul.toc_ul {

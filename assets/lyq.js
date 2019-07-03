@@ -41,19 +41,19 @@ function resizeTitleBar() {
 /* Display a thicker bar under selected tab */
 function checkVisibility() {
   if ($("#toc").is(":visible")) {
-    $("#toggletoc").css("border-bottom", "3px #313131 solid");
+    $("#toggletoc").addClass("selected");
   } else {
-    $("#toggletoc").css("border-bottom", "1px #e5e5e5 solid");
+    $("#toggletoc").removeClass("selected");
   }
   if ($("#sitemenu").is(":visible")) {
-    $("#togglemenu").css("border-bottom", "3px #313131 solid");
+    $("#togglemenu").addClass("selected");
   } else {
-    $("#togglemenu").css("border-bottom", "1px #e5e5e5 solid");
+    $("#togglemenu").removeClass("selected");
   }
   if ($("#options").is(":visible")) {
-    $("#toggleoptions").css("border-bottom", "3px #313131 solid");
+    $("#toggleoptions").addClass("selected");
   } else {
-    $("#toggleoptions").css("border-bottom", "1px #e5e5e5 solid");
+    $("#toggleoptions").removeClass("selected");
   }
   /* The size of .masthead must have changed */
   resizeTitleBar();
