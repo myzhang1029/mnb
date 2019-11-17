@@ -5,5 +5,8 @@ layout: default
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date: "%Y年%m月" }}</time>
+  {% if page.state == "sid" %}
+    <p>本章录入工作尚未完成，部分或全部内容可能无法查看</p>
+  {% endif %}
   {{ content }}
 </article>

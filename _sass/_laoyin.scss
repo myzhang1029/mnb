@@ -38,7 +38,7 @@ ly-e {
 // Attributes:
 // date: the date.
 // towhom: said to whom.
-ly-q {
+ly-qb, ly-q {
   display: block;
   overflow: hidden;
   margin: 2rem 0rem 1.5rem 1.5rem;
@@ -49,6 +49,10 @@ ly-q {
   &:after {
     content: '”';
   }
+}
+
+ly-qb {
+  white-space: pre;
 }
 
 // Not appropriate words/sentences

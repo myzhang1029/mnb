@@ -155,7 +155,7 @@ $(document).ready(function() {
       date = "<br />——" + $(this).attr("date");
     }
     strToAdd = original + "”" + date + towhom;
-    $(this).html(strToAdd);
+    $(this).val(strToAdd);
   });
   /* After it's done, remove the old close quote */
   $("head").append("<style>ly-q:after{content:''}</style>");
