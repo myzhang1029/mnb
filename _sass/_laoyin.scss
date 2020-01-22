@@ -55,6 +55,15 @@ ly-qb {
   white-space: pre;
 }
 
+// Privacy concerns: replace all names with placeholders
+// In order for browsers without CSS not to dispplay the name out,
+// the name is put inside an attribute.
+// Attributes:
+// val: the name.
+ly-name {
+  display: inline;
+}
+
 // Not appropriate words/sentences
 ly-r {
   display: none;

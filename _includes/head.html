@@ -11,8 +11,8 @@
   </title>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-      jax: ["input/TeX","output/HTML-CSS"],
-      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+      extensions: ["asciimath2jax.js", "tex2jax.js"],
       TeX: {
         extensions: ["AMSmath.js","AMSsymbols.js","newcommand.js","unicode.js","noUndefined.js"]
       },
@@ -24,21 +24,54 @@
         undefinedFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif'
       },
       displayAlign: "left",
-      displayIndent: "0em",
+      displayIndent: "1em",
       tex2jax: {
         inlineMath: [['$','$']],
         displayMath: [['$$','$$']],
         skipTags: ["script","noscript","style","textarea","pre","code"],
         processEscapes: true
       },
-      showMathMenu: false,
+      asciimath2jax: {
+        delimiters: [['\[','\]'], ['¥','¥']],
+        skipTags: ["script","noscript","style","textarea","pre","code"]
+      },
+      showMathMenu: true,
       messageStyle: "simple"
     });
     MathJax.Hub.Register.StartupHook("End",function() {
       $(".MathJax").not(".MathJax_Display").parent().css("line-height", "2em");
     });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js" integrity="sha256-y6wabJ5k7SsCCoLIfG266Ea3KiRvzUD6o7tNcZAhG0g=" crossorigin="anonymous"></script>
+  <!--The HTML-CSS.linebreaks option is not yet implemented (but may be in a future release)
+Configuration option messageStyle has no version 3 equivalent-->
+  <!--script>
+  window.MathJax = {
+    "%s is now handled through direct CSS": '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
+    chtml: {
+      displayAlign: "left",
+      displayIndent: "1em"
+    },
+    tex: {
+      inlineMath: [['$','$']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      packages: ['base', 'ams', 'newcommand', 'unicode', 'noundefined']
+    },
+    options: {
+      skipHtmlTags: ["script","noscript","style","textarea","pre","code"],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    asciimath: {
+      delimiters: [['\[','\]']]
+    },
+    loader: {
+      load: ['input/asciimath', '[tex]/unicode']
+    }
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script-->
   <!--[if lt IE 9>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>

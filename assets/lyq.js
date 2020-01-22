@@ -144,18 +144,23 @@ $(document).ready(function() {
   $("main").css("position", "relative");
   $("footer").css("position", "relative");
   resizeTitleBar();
-  /* Append date and to whom data to lyq */
+    /* Append date to lyq */
   $("ly-q").each(function(i) {
     var towhom = "", date="", strToAdd="";
     var original = $(this).html();
-    if ($(this).attr("towhom") != undefined) {
+    /*if ($(this).attr("towhom") != undefined) {
       towhom = "与" + $(this).attr("towhom");
-    }
+    }*//* Remove this to protect privacy */
     if ($(this).attr("date") != undefined) {
       date = "<br />——" + $(this).attr("date");
     }
     strToAdd = original + "”" + date + towhom;
     $(this).html(strToAdd);
+  });
+  $("ly-name").each(function(i) {
+    if ($(this).attr("hide") != "true") {
+      $(this).html("某某某");
+    }
   });
   /* After it's done, remove the old close quote */
   $("head").append("<style>ly-q:after{content:''}</style>");

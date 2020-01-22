@@ -61,6 +61,19 @@ table {
   font-size: 85%;
   border: 1px solid $border-color;
   border-collapse: collapse;
+  &.transparent, &.struct {
+    border: none !important;
+    td, th {
+      border: none !important;
+      background-color: transparent !important;
+    }
+  }
+  // Tables that are used to form a page structure
+  &.struct {
+    td,th {
+      padding: 0 !important;
+    }
+  }
 }
 
 td,
