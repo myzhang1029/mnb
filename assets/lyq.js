@@ -129,7 +129,7 @@ $(document).ready(function() {
   $("#notmoving").css("z-index", "100");
   $("#dropdown").css("position", "fixed");
   /* Lower than #notmoving */
-  /* It the screen width change across $large-breakpoint, the behavoir is still
+  /* It the screen width change across $large-breakpoint, the behavior is still
   weird, but it doesn't matter */
   $("#dropdown").css("top", parseInt($(".masthead").css("padding-top")) + $("#notmoving").outerHeight(true) + 1.24/* magic */);
   $("#dropdown").css("left", $(".container").css("padding-left"));
